@@ -1,0 +1,227 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Colors & Fonts */
+:root {
+  --bg: #f0f4f8;
+  --text: #1a1a1a;
+  --accent: #5c6bc0;        /* violet */
+  --accent-dark: #3949ab;
+  --highlight: #81c784;     /* soft green for highlights */
+  --card-bg: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --radius: 12px;
+  --transition: 0.3s ease;
+  --fade-delay: 0.2s;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  transition: background 0.3s ease;
+}
+
+/* Layout */
+main {
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Navbar */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  padding: 1rem;
+  border-radius: 0 0 var(--radius) var(--radius);
+  box-shadow: 0 4px 6px var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all var(--transition);
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: var(--highlight);
+  left: 0;
+  bottom: -4px;
+  transition: width var(--transition);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a:hover {
+  transform: translateY(-2px);
+}
+
+/* Headings with animation */
+h1, h2 {
+  margin-bottom: 1rem;
+  color: var(--accent-dark);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.6s forwards;
+}
+
+h1 {
+  animation-delay: 0.2s;
+}
+
+h2 {
+  animation-delay: 0.4s;
+}
+
+p {
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeUp 0.6s forwards;
+  animation-delay: 0.6s;
+}
+
+/* Fade up animation */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Cards */
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 6px var(--shadow);
+  padding: 1.5rem;
+  margin: 1rem 0;
+  transition: all var(--transition);
+  transform: translateY(0);
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 10px 20px var(--shadow);
+}
+
+/* Buttons & links */
+a.button, button {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border-radius: var(--radius);
+  margin-top: 1rem;
+  text-decoration: none;
+  transition: all var(--transition);
+  border: none;
+  cursor: pointer;
+}
+
+a.button:hover, button:hover {
+  background: linear-gradient(135deg, var(--highlight), var(--accent-dark));
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px var(--shadow);
+}
+
+/* Contact Form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+  opacity: 0;
+  animation: fadeUp 0.8s forwards;
+}
+
+input, textarea {
+  padding: 0.7rem;
+  border-radius: var(--radius);
+  border: 1px solid #ccc;
+  font-family: inherit;
+  transition: all var(--transition);
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 5px var(--accent);
+}
+
+/* Responsive */
+@media(max-width: 600px){
+  nav {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  main {
+    padding: 1rem;
+  }
+}
+
+/* Paragraphs */
+p {
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  transform: translateY(15px);
+  animation: fadeUp 0.6s forwards;
+  animation-delay: 0.6s;
+  line-height: 1.8;               /* better spacing */
+  font-size: 1.05rem;             /* slightly larger, easier to read */
+  color: #2c2c2c;                 /* darker text for contrast */
+  max-width: 700px;               /* keeps lines readable */
+  transition: color 0.3s ease;
+}
+
+/* Highlight certain words dynamically */
+p span.highlight {
+  color: var(--accent);
+  font-weight: 600;
+  position: relative;
+}
+
+p span.highlight::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: var(--highlight);
+  left: 0;
+  bottom: -3px;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+p span.highlight:hover::after {
+  height: 100%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+}
+
+/* Fade up animation */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
