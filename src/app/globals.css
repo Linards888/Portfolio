@@ -30,7 +30,7 @@ body {
 /* Layout */
 main {
   padding: 2rem;
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -225,3 +225,58 @@ p span.highlight:hover::after {
     transform: translateY(0);
   }
 }
+
+/* Make the card longer/wider */
+.project-card-outside {
+  position: relative;
+  padding: 2rem;
+  margin: 2rem 0;
+  min-height: 200px;       /* taller card */
+  display: flex;
+  align-items: center;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: 0 6px 15px var(--shadow);
+}
+
+/* Project content stays inside the card */
+.project-card-outside .project-content {
+  flex: 1;
+  z-index: 2; /* above image if overlapping */
+  max-width: 600px;
+}
+
+/* Image sits outside the card, overlapping */
+.project-image-outside {
+  position: absolute;
+  right: -100px;       /* outside the card */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;          /* behind text if needed */
+}
+
+/* Responsive: stack image above the card on small screens */
+@media (max-width: 768px) {
+  .project-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  .project-card-outside {
+    flex-direction: column;
+    align-items: center;
+    min-height: auto;
+    padding: 1.5rem;
+  }
+  .project-image-outside {
+    position: relative;
+    right: 0;
+    top: 0;
+    transform: none;
+    margin-bottom: 1rem;
+  }
+}
+
+.container {
+      display: flex; /* Enables flexbox */
+      gap: 20px;     /* Optional: adds space between divs */
+    }
