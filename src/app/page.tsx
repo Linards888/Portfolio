@@ -16,7 +16,7 @@ export default function Home() {
       <div className="home-content">
         <h1>Linards Balodis 🌟</h1>
         <p>
-          Dzimis 2009.07.20, 16 gadi. Es esmu elektronikas entuziasts, kas piedalās Latvijas robotikas sacensībās. 
+          Man pašlaik ir 16 gadi un eju 10 klasē. Es esmu elektronikas entuziasts, kas piedalās Latvijas robotikas sacensībās. 
           Dizainēju 3D modeļus Fusion 360, mācos elektroniku un PCB dizainēšanu, kā arī pats printēju un frēzēju detaļas priekš robotiem.
         </p>
         <p>
