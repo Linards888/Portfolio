@@ -34,6 +34,8 @@ export default function Projects() {
         <h2>AI kodēšana un mācīšana</h2>
         <p>
           Projekts, kur mācos un izstrādāju AI botu – programmēju, trenēju un testēju.
+          
+          Pašlaik nav labs progress 😅
         </p>
         <a href="https://github.com/Linards888/BotMiku" className="button" target="_blank">
           GitHub Repo

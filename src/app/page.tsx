@@ -20,7 +20,7 @@ export default function Home() {
           Dizainēju 3D modeļus Fusion 360, mācos elektroniku un PCB dizainēšanu, kā arī pats printēju un frēzēju robotu detaļas.
         </p>
         <p>
-          Šobrīd mācos CS-50 kursus EdX un PCB dizainēšanas kursus Udemy.
+          Šobrīd skatos CS-50 kursus un mācos PCB dizainēšanu.
         </p>
       </div>
     </div>
