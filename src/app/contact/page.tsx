@@ -2,7 +2,6 @@ export default function Contact() {
   return (
     <>
       <h1>Contact Me ✨</h1>
-      <p>Telefons: 22447414</p>
       <p>E-pasts: <a href="mailto:Linardsbalodis2009@gmail.com">Linardsbalodis2009@gmail.com</a></p>
       <p>LinkedIn: <a href="https://www.linkedin.com/in/linards-balodis-689b912bb/" target="_blank">Linards Balodis</a></p>
 
