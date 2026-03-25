@@ -80,6 +80,16 @@ nav a::after {
   align-items: stretch; /* 🔥 lai abi bloki vienāda augstuma */
 }
 
+.project-row.reverse {
+  flex-direction: row-reverse;
+}
+
+@media (max-width: 768px) {
+  .project-row {
+    flex-direction: column !important;
+  }
+}
+
 /* IMAGE BLOCK */
 .image-box {
   background: #f5f5f5;
@@ -99,6 +109,10 @@ nav a::after {
   transform: translateY(0);
   min-width: 300px;
   max-width: 350px;   /* ierobežo */
+}
+
+.project-row.reverse {
+  flex-direction: row-reverse;
 }
 
 /* 🔥 svarīgais fix bildei */
