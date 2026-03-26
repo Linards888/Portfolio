@@ -5,7 +5,7 @@ export default function Home() {
     <div className="home-container">
       <div className="home-image">
         <Image
-          src="/Linards1.jpg" // put your image in public folder
+          src="/Linards1.jpg"
           alt="Linards Balodis"
           width={250}
           height={250}

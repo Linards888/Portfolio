@@ -5,6 +5,7 @@ const projects = [
     title: "Portfolio websaite",
     description:
       "Mana pirmā pieredze web izstrādē. Šajā projektā iemācījos pamatus par frontend izstrādi.",
+    image: "/PortfolioIMG.png",
     link: "https://github.com/Linards888/Portfolio",
   },
   {
@@ -25,7 +26,7 @@ const projects = [
     title: "DIY SIM racing",
     description:
       "Mēs izveidojām braukšanas simulatoru, veidojot 3D detaļas, integrējot elektroniku un konfigurējot vadības sistēmu (stūre, pedāļi u.c.). Piedalījos sistēmas uzbūvē un optimizācijā, lai nodrošinātu reālistisku un precīzu vadību. Pašlaik strādājam pie kameras integrācijas robotu folkreisa projektā un tās savienošanas ar SIM setup, lai varētu attālināti vadīt robotu un skatīt braucienu VR brillēs.",
-    image: "/folkrace.png",
+    image: "/img2.jpg",
     link: "https://github.com/",
   },
   {
@@ -64,7 +65,7 @@ export default function Projects() {
             className={`project-row ${isReverse ? "reverse" : ""}`}
             key={index}
           >
-            {/* IMAGE */}
+            {}
             {project.image && (
               <div className="image-box">
                 <Image
@@ -76,7 +77,7 @@ export default function Projects() {
               </div>
             )}
 
-            {/* TEXT */}
+            {}
             <div className="card">
               <h2>{project.title}</h2>
               <p>{project.description}</p>
