@@ -30,9 +30,9 @@ const projects = [
     link: "https://github.com/",
   },
   {
-    title: "PCB dizains",
+    title: "G_code expermenti",
     description:
-      "Shēmu zīmēšana un PCB layout veidošana ar pirmajiem prototipiem.",
+      "Šajā momentā, kā paildus projektu, es apgūstu prfesionālu frēzēšanu. Es cenšos izprast kā uztaisa profesionālu CNC programmu priekš dažādiem mērķiem un vajadzībām.",
     image: "/folkrace.png",
     link: "https://github.com/",
   },
