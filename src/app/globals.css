@@ -1,4 +1,3 @@
-/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -9,9 +8,9 @@
 :root {
   --bg: #f0f4f8;
   --text: #1a1a1a;
-  --accent: #5c6bc0;        /* violet */
+  --accent: #5c6bc0;
   --accent-dark: #3949ab;
-  --highlight: #81c784;     /* soft green for highlights */
+  --highlight: #81c784;
   --card-bg: #ffffff;
   --shadow: rgba(0, 0, 0, 0.1);
   --radius: 12px;
@@ -27,7 +26,6 @@ body {
   transition: background 0.3s ease;
 }
 
-/* Layout */
 main {
   padding: 2rem;
   max-width: 1200px;
@@ -68,6 +66,67 @@ nav a::after {
   transition: width var(--transition);
 }
 
+.projects {
+  padding: 0px 1px;
+  max-width: 100%;
+}
+
+.project-row {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 40px;
+  align-items: stretch;
+}
+
+.project-row.reverse {
+  flex-direction: row-reverse;
+}
+
+@media (max-width: 768px) {
+  .project-row {
+    flex-direction: column !important;
+  }
+}
+
+/* IMAGE BLOCK */
+.image-box {
+  background: #f5f5f5;
+  padding: 15px;
+  border-radius: 16px;
+  min-width: 260px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 6px var(--shadow);
+  padding: 1.5rem;
+  margin: 1rem 0;
+  transition: all var(--transition);
+  transform: translateY(0);
+  min-width: 300px;
+  max-width: 350px;   /* ierobežo */
+}
+
+.project-row.reverse {
+  flex-direction: row-reverse;
+}
+
+.image-box img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  
+}
+.image-box img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
 nav a:hover::after {
   width: 100%;
 }
@@ -76,7 +135,7 @@ nav a:hover {
   transform: translateY(-2px);
 }
 
-/* Headings with animation */
+/* Headings ar animācijām */
 h1, h2 {
   margin-bottom: 1rem;
   color: var(--accent-dark);
@@ -101,7 +160,6 @@ p {
   animation-delay: 0.6s;
 }
 
-/* Fade up animation */
 @keyframes fadeUp {
   to {
     opacity: 1;
@@ -109,7 +167,6 @@ p {
   }
 }
 
-/* Cards */
 .card {
   background: var(--card-bg);
   border-radius: var(--radius);
@@ -125,7 +182,6 @@ p {
   box-shadow: 0 10px 20px var(--shadow);
 }
 
-/* Buttons & links */
 a.button, button {
   display: inline-block;
   background: linear-gradient(135deg, var(--accent), var(--accent-dark));
@@ -145,7 +201,7 @@ a.button:hover, button:hover {
   box-shadow: 0 6px 12px var(--shadow);
 }
 
-/* Contact Form */
+/* Contact info */
 form {
   display: flex;
   flex-direction: column;
@@ -180,21 +236,19 @@ input:focus, textarea:focus {
   }
 }
 
-/* Paragraphs */
 p {
   margin-bottom: 1.5rem;
   opacity: 0;
   transform: translateY(15px);
   animation: fadeUp 0.6s forwards;
   animation-delay: 0.6s;
-  line-height: 1.8;               /* better spacing */
-  font-size: 1.05rem;             /* slightly larger, easier to read */
-  color: #2c2c2c;                 /* darker text for contrast */
-  max-width: 700px;               /* keeps lines readable */
+  line-height: 1.8;
+  font-size: 1.05rem;
+  color: #2c2c2c;
+  max-width: 1200px;
   transition: color 0.3s ease;
 }
 
-/* Highlight certain words dynamically */
 p span.highlight {
   color: var(--accent);
   font-weight: 600;
@@ -218,7 +272,6 @@ p span.highlight:hover::after {
   background: linear-gradient(135deg, var(--accent), var(--accent-dark));
 }
 
-/* Fade up animation */
 @keyframes fadeUp {
   to {
     opacity: 1;
@@ -226,12 +279,11 @@ p span.highlight:hover::after {
   }
 }
 
-/* Make the card longer/wider */
 .project-card-outside {
   position: relative;
   padding: 2rem;
   margin: 2rem 0;
-  min-height: 200px;       /* taller card */
+  min-height: 200px;
   display: flex;
   align-items: center;
   background: var(--card-bg);
@@ -255,7 +307,6 @@ p span.highlight:hover::after {
   z-index: 1;          /* behind text if needed */
 }
 
-/* Responsive: stack image above the card on small screens */
 @media (max-width: 768px) {
   .project-card {
     flex-direction: column;
@@ -277,8 +328,8 @@ p span.highlight:hover::after {
 }
 
 .container {
-      display: flex; /* Enables flexbox */
-      gap: 20px;     /* Optional: adds space between divs */
+      display: flex;
+      gap: 20px;
     }
 
 /* Zig-zag container */
@@ -289,23 +340,20 @@ p span.highlight:hover::after {
   gap: 3rem;
 }
 
-/* Square images, large */
 .zig {
   position: relative;
   width: 85%;              /* aizņem gandrīz visu platumu */
-  aspect-ratio: 1 / 1;     /* 🔥 KVADRĀTS */
+  aspect-ratio: 1 / 1;
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: 0 12px 30px var(--shadow);
   transition: transform var(--transition), box-shadow var(--transition);
 }
 
-/* Image inside */
 .zig img {
   object-fit: cover;
 }
 
-/* Alignment */
 .zig.right {
   align-self: flex-end;
 }
@@ -314,7 +362,6 @@ p span.highlight:hover::after {
   align-self: flex-start;
 }
 
-/* Hover effect */
 .zig:hover {
   transform: translateY(-10px) scale(1.03);
   box-shadow: 0 20px 45px var(--shadow);

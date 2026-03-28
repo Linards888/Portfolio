@@ -3,7 +3,7 @@ import Image from 'next/image';
 export default function About() {
   return (
     <div className="about-container card">
-      {/* Profile image */}
+      {}
       <div className="about-image">
         <Image
           src="/Linards2.jpg"
@@ -14,7 +14,7 @@ export default function About() {
         />
       </div>
 
-      {/* Content */}
+      {}
       <div className="about-content">
         <h1>About Me 💡</h1>
         <p>
@@ -22,7 +22,7 @@ export default function About() {
           Esmu praktisks un strādāju pie projektiem, kas apvieno dizainu un tehnoloģijas.
         </p>
 
-        {/* Zig-zag images */}
+        {}
         <div className="about-zigzag">
           <div className="zig right">
             <Image src="/img1.jpg" alt="Project 1" fill />

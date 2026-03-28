@@ -5,7 +5,7 @@ export default function Home() {
     <div className="home-container">
       <div className="home-image">
         <Image
-          src="/Linards1.jpg" // put your image in public folder
+          src="/Linards1.jpg"
           alt="Linards Balodis"
           width={250}
           height={250}
@@ -20,7 +20,7 @@ export default function Home() {
           Dizainēju 3D modeļus Fusion 360, mācos elektroniku un PCB dizainēšanu, kā arī pats printēju un frēzēju robotu detaļas.
         </p>
         <p>
-          Šobrīd skatos CS-50 kursus un mācos PCB dizainēšanu.
+          Šobrīd mācos Elektroniku un PCB dizainēšanu, kā arī mācos kā profesionāli frēzēt un veidot to programmas.
         </p>
       </div>
     </div>
