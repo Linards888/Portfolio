@@ -1,0 +1,180 @@
+/* ── Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0e0f11;
+  --bg-card: #16181c;
+  --bg-card-hover: #1c1e23;
+  --border: rgba(255,255,255,0.07);
+  --border-hover: rgba(255,255,255,0.14);
+  --text: #e8eaf0;
+  --text-muted: #7a7f8e;
+  --text-dim: #4a4f5e;
+  --accent: #4f8ef7;
+  --accent-dim: rgba(79,142,247,0.12);
+  --accent-border: rgba(79,142,247,0.3);
+  --green: #3ecf8e;
+  --green-dim: rgba(62,207,142,0.1);
+  --radius: 10px;
+  --radius-lg: 14px;
+  --max-w: 780px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Header ── */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(14,15,17,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.logo {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+}
+
+.main-nav {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.main-nav::-webkit-scrollbar { display: none; }
+
+.main-nav a {
+  font-size: 13px;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  transition: color 0.15s, background 0.15s;
+}
+.main-nav a:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+
+/* ── Main & Footer ── */
+.main-content {
+  flex: 1;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  width: 100%;
+  padding: 48px 24px 80px;
+}
+
+.site-footer {
+  text-align: center;
+  padding: 20px 24px;
+  font-size: 12px;
+  color: var(--text-dim);
+  border-top: 1px solid var(--border);
+}
+
+/* ── Typography ── */
+h1 { font-size: 32px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; }
+h2 { font-size: 20px; font-weight: 600; letter-spacing: -0.02em; }
+h3 { font-size: 16px; font-weight: 600; letter-spacing: -0.01em; }
+
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 20px;
+}
+
+/* ── Cards ── */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.card:hover { border-color: var(--border-hover); background: var(--bg-card-hover); }
+
+/* ── Badges / Pills ── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  letter-spacing: 0.02em;
+}
+.badge-blue { background: var(--accent-dim); color: var(--accent); border: 1px solid var(--accent-border); }
+.badge-green { background: var(--green-dim); color: var(--green); border: 1px solid rgba(62,207,142,0.25); }
+
+.pill {
+  font-size: 11px;
+  color: var(--text-muted);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  padding: 3px 10px;
+}
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 18px;
+  border-radius: var(--radius);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.15s;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  background: transparent;
+}
+.btn:hover { border-color: var(--border-hover); color: var(--text); background: rgba(255,255,255,0.04); }
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+.btn-primary:hover { background: #6a9ef8; border-color: #6a9ef8; color: #fff; }
+
+/* ── Dividers ── */
+.divider { height: 1px; background: var(--border); margin: 32px 0; }
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  h1 { font-size: 26px; }
+  .main-content { padding: 32px 16px 60px; }
+  .header-inner { padding: 0 16px; }
+}

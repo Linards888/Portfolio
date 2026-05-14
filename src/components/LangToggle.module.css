@@ -1,0 +1,19 @@
+.btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 9px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  transition: border-color 0.15s;
+  flex-shrink: 0;
+}
+.btn:hover { border-color: #999; }
+.active   { color: var(--text); }
+.inactive { color: var(--text-dim); }
+.sep      { color: var(--text-dim); font-weight: 400; }

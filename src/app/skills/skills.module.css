@@ -1,0 +1,13 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px 48px;
+}
+
+.list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.item { font-size: 14px; color: var(--text-muted); display: flex; gap: 8px; }
+.dash { color: var(--text-dim); flex-shrink: 0; }
+
+@media (max-width: 600px) {
+  .grid { grid-template-columns: 1fr; gap: 32px; }
+}
