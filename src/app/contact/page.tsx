@@ -3,7 +3,7 @@ import styles from './contact.module.css';
 import { useLang } from '@/context/LanguageContext';
 
 const contacts = [
-  { labelLV: 'E-pasts', labelEN: 'Email', value: 'contact@linardsb.xyz', href: 'mailto:contact@linardsb.xyz', external: false },
+  { labelLV: 'E-pasts', labelEN: 'Email', value: 'Linardsbalodis2009@gmail.com', href: 'Linardsbalodis2009@gmail.com', external: false },
   { labelLV: 'LinkedIn', labelEN: 'LinkedIn', value: 'Linards Balodis', href: 'https://www.linkedin.com/in/linards-balodis-689b912bb/', external: true },
   { labelLV: 'GitHub', labelEN: 'GitHub', value: 'Linards888', href: 'https://github.com/Linards888', external: true },
 ];
@@ -28,7 +28,7 @@ export default function Contact() {
         ))}
       </ul>
       <p style={{ marginTop: 40, fontSize: 13, color: 'var(--text-dim)' }}>
-        {t('Parasti atbildu 1–2 dienu laikā.', 'Usually reply within 1–2 days.')}
+        {t('Parasti meiģinu atbildēt 1 dienas laikā.', 'Usually try to reply within 1 day.')}
       </p>
     </div>
   );

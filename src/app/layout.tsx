@@ -20,9 +20,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <nav className="main-nav">
                 <Link href="/">Home</Link>
                 <Link href="/about">About</Link>
-                <Link href="/skills">Skills</Link>
+                <Link href="/resume">Resume</Link>
                 <Link href="/projects">Projects</Link>
-                <Link href="/achievements">Achievements</Link>
                 <Link href="/contact">Contact</Link>
               </nav>
               <LangToggle />

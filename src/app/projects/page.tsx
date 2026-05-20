@@ -14,7 +14,6 @@ function ModelViewer({ file }: { file: string }) {
   const [errorMsg, setErrorMsg] = useState('');
 
   useEffect(() => {
-    // Copy ref immediately — avoids react-hooks/exhaustive-deps warning
     const el = mountRef.current!;
 
     let animId = 0;
@@ -24,8 +23,6 @@ function ModelViewer({ file }: { file: string }) {
 
     async function init() {
       try {
-        // Dynamic imports — THREE namespace not available at compile time,
-        // so we use `import type * as THREETypes` above for casting only.
         const THREE = await import('three') as typeof THREETypes;
         const { GLTFLoader }    = await import('three/examples/jsm/loaders/GLTFLoader.js') as any;
         const { OrbitControls } = await import('three/examples/jsm/controls/OrbitControls.js') as any;
@@ -40,16 +37,13 @@ function ModelViewer({ file }: { file: string }) {
         const w = el.clientWidth  || 700;
         const h = el.clientHeight || 460;
 
-        // ── Scene — warm light grey so black model parts are visible ──
         const scene = new THREE.Scene();
         scene.background = new THREE.Color(0xf0ede8);
         scene.fog = new THREE.FogExp2(0xf0ede8, 0.06);
 
-        // ── Camera ──
         const camera = new THREE.PerspectiveCamera(42, w / h, 0.01, 100);
         camera.position.set(0, 0.6, 3.2);
 
-        // ── Renderer ──
         renderer = new THREE.WebGLRenderer({ antialias: true });
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         renderer.setSize(w, h);
@@ -59,27 +53,18 @@ function ModelViewer({ file }: { file: string }) {
         renderer.toneMappingExposure = 1.15;
         el.appendChild(renderer.domElement);
 
-        // ── Post-processing ──
         composer = new EffectComposer(renderer);
         composer.addPass(new RenderPass(scene, camera));
 
-        const bloom = new UnrealBloomPass(
-          new THREE.Vector2(w, h),
-          0.08,   // very subtle — just takes the edge off
-          0.4,
-          0.95
-        );
+        const bloom = new UnrealBloomPass(new THREE.Vector2(w, h), 0.08, 0.4, 0.95);
         composer.addPass(bloom);
 
         const fxaa = new ShaderPass(FXAAShader);
         fxaa.uniforms['resolution'].value.set(1 / w, 1 / h);
         composer.addPass(fxaa);
 
-        // ── Lights ──
-        // Bright overall ambient so dark model parts get illuminated
         scene.add(new THREE.AmbientLight(0xffffff, 1.4));
 
-        // Warm key from top-right
         const key = new THREE.DirectionalLight(0xfff6e8, 2.0);
         key.position.set(5, 9, 6);
         key.castShadow = true;
@@ -87,17 +72,14 @@ function ModelViewer({ file }: { file: string }) {
         key.shadow.bias = -0.001;
         scene.add(key);
 
-        // Cool blue fill from left — separates edges nicely
         const fillL = new THREE.DirectionalLight(0xd0e8ff, 0.8);
         fillL.position.set(-6, 3, 2);
         scene.add(fillL);
 
-        // Soft bottom bounce — lifts shadows on dark areas
         const bounce = new THREE.DirectionalLight(0xfff0d8, 0.5);
         bounce.position.set(0, -4, 3);
         scene.add(bounce);
 
-        // ── Reflective floor ──
         const floor = new THREE.Mesh(
           new THREE.PlaneGeometry(10, 10),
           new THREE.MeshStandardMaterial({ color: 0xe8e4de, roughness: 0.9, metalness: 0.0 })
@@ -107,7 +89,6 @@ function ModelViewer({ file }: { file: string }) {
         floor.receiveShadow = true;
         scene.add(floor);
 
-        // Subtle grid on floor
         const grid = new THREE.GridHelper(10, 28, 0xcccccc, 0xdddddd);
         const gridMat = grid.material as THREETypes.Material & { opacity: number; transparent: boolean };
         gridMat.opacity = 0.5;
@@ -115,7 +96,6 @@ function ModelViewer({ file }: { file: string }) {
         grid.position.y = -0.915;
         scene.add(grid);
 
-        // ── Controls ──
         const controls = new OrbitControls(camera, renderer.domElement);
         controls.enableDamping   = true;
         controls.dampingFactor   = 0.055;
@@ -126,7 +106,6 @@ function ModelViewer({ file }: { file: string }) {
         controls.maxDistance     = 8;
         controls.maxPolarAngle   = Math.PI * 0.76;
 
-        // ── Load model ──
         const loader = new GLTFLoader();
         loader.load(
           file,
@@ -142,14 +121,13 @@ function ModelViewer({ file }: { file: string }) {
               }
             });
 
-            // Auto-center & scale to fit view
             const box    = new THREE.Box3().setFromObject(model);
             const center = box.getCenter(new THREE.Vector3());
             const size   = box.getSize(new THREE.Vector3());
             const scale  = 1.8 / Math.max(size.x, size.y, size.z);
             model.scale.setScalar(scale);
             model.position.sub(center.multiplyScalar(scale));
-            model.position.y += 0.05; // slightly above floor
+            model.position.y += 0.05;
 
             scene.add(model);
             setStatus('ready');
@@ -161,7 +139,6 @@ function ModelViewer({ file }: { file: string }) {
           }
         );
 
-        // ── Resize ──
         const onResize = () => {
           const nw = el.clientWidth;
           const nh = el.clientHeight;
@@ -173,7 +150,6 @@ function ModelViewer({ file }: { file: string }) {
         };
         window.addEventListener('resize', onResize);
 
-        // ── Render loop ──
         const loop = () => {
           animId = requestAnimationFrame(loop);
           controls.update();
@@ -247,14 +223,15 @@ function ModelViewer({ file }: { file: string }) {
 
 // ─────────────────────────────────────────────────────────────────────────────
 // PROJECT DATA
-// modelFile: path relative to /public/  — set null to hide 3D viewer
+// id: used as the scroll anchor — must match PROJECTS_PREVIEW in home page.tsx
 // ─────────────────────────────────────────────────────────────────────────────
 
 const projects = [
   {
+    id: 'antweight',
     titleLV: 'Antweight 454g sacensību robots',
     titleEN: 'Antweight 454g combat robot',
-    date: '2024 — 2025',
+    date: '2024 — tagad / now',
     badgeLV: '🏆 RoboChallenge 2025 · Top 16 Eiropā',
     badgeEN: '🏆 RoboChallenge 2025 · Top 16 Europe',
     green: true,
@@ -270,6 +247,7 @@ const projects = [
     modelFile: '/models/antweight.glb',
   },
   {
+    id: 'folkrace',
     titleLV: 'Robotu Folkrace',
     titleEN: 'Robot Folkrace',
     date: '2023 — tagad / now',
@@ -293,9 +271,29 @@ const projects = [
     modelFile: ['/models/VentspilsHack.glb', '/models/Traktors.glb'],
   },
   {
+    id: 'LATA',
+    titleLV: 'LATA Hakatons un Ideju Ģenerators 2023',
+    titleEN: 'LATA Hackathon and Idea Generator 2023',
+    date: '2023',
+    badgeLV: '🏆  3.VIETA',
+    badgeEN: '🏆  3.PLACE',
+    green: true,
+    descLV: '“LATA hakatons un ideju ģenerators 2023” bija tehnoloģiju un inovāciju pasākums, kur komandas īsā laikā izstrādāja un prezentēja risinājumus dažādām problēmām, izmantojot programmēšanu, dizainu un radošu domāšanu.',
+    descEN: '“LATA Hackathon and Idea Generator 2023” was a technology and innovation event where teams rapidly developed and presented solutions to various challenges using programming, design, and creative thinking.',
+    contribLV: 'Piedalījos idejas izstrādē un tās prezentēšanā, palīdzēju ar tehnisko un radošo risinājuma daļu. Ieguvām 3. vietu ideju ģeneratora kategorijā.',
+    contribEN: 'I participated in developing and presenting the idea, contributing to both the technical and creative parts of the solution. Our team achieved 3rd place in the Idea Generator category.',
+    learnedLV: 'Ātri ģenerēt un attīstīt idejas, strādāt komandā zem laika spiediena, kā arī uzlabot prasmes prezentēt tehnisku risinājumu.',
+    learnedEN: 'How to quickly generate and develop ideas, work under time pressure in a team, and improve my skills in presenting technical solutions.',
+    skills: ['3D modelēšana', 'Elektronika', 'Vadības sistēmas', 'Prototipēšana'],
+    links: [],
+    images: ['/DatuHakatons_LATA.jpg'],
+    modelFile: null,
+  },
+  {
+    id: 'simulator',
     titleLV: 'DIY braukšanas simulators',
     titleEN: 'DIY driving simulator',
-    date: '2024 — tagad / now',
+    date: '2025 — tagad / now',
     badgeLV: 'Aktīvā izstrādē',
     badgeEN: 'In active development',
     green: false,
@@ -311,6 +309,7 @@ const projects = [
     modelFile: null,
   },
   {
+    id: 'cnc',
     titleLV: 'G-code eksperimenti · CNC frēzēšana',
     titleEN: 'G-code experiments · CNC milling',
     date: '2024 — tagad / now',
@@ -326,9 +325,10 @@ const projects = [
     skills: ['CNC', 'G-code', 'Frēzēšana / Milling', 'CAM'],
     links: [],
     images: ['/freze.jpg'],
-    modelFile: null, // no 3D model
+    modelFile: null,
   },
   {
+    id: 'portfolio',
     titleLV: 'Portfolio mājaslapa',
     titleEN: 'Portfolio website',
     date: '2025 — tagad / now',
@@ -347,7 +347,7 @@ const projects = [
       { label: 'Live ↗', href: 'https://linardsb.xyz' },
     ],
     images: ['/PortfolioIMG.png'],
-    modelFile: null, // no 3D model
+    modelFile: null,
   },
 ];
 
@@ -370,7 +370,8 @@ export default function Projects() {
 
       <div className={styles.list}>
         {projects.map((p, i) => (
-          <article key={p.titleLV} className={styles.project}>
+          // ↓ id here is the scroll target — e.g. id="folkrace"
+          <article key={p.titleLV} id={p.id} className={styles.project}>
 
             <div className={styles.header}>
               <div>
@@ -384,7 +385,6 @@ export default function Projects() {
 
             <p className={styles.desc}>{t(p.descLV, p.descEN)}</p>
 
-            {/* 3D viewer — shown when modelFile is set */}
             {p.modelFile && (
               Array.isArray(p.modelFile) ? (
                 <div className={styles.viewerRow}>

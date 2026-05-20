@@ -3,7 +3,8 @@ import styles from './achievements.module.css';
 import { useLang } from '@/context/LanguageContext';
 
 const items = [
-  { lv: 'RoboChallenge 2025 — Top 16 Eiropā', en: 'RoboChallenge 2025 — Top 16 in Europe', subLV: 'Antweight kategorija · Starptautiskās sacensības', subEN: 'Antweight class · International competition', highlight: true }
+  { lv: 'RoboChallenge 2025 — Top 16 Eiropā', en: 'RoboChallenge 2025 — Top 16 in Europe', subLV: 'Antweight kategorija · Starptautiskās sacensības', subEN: 'Antweight class · International competition', highlight: true },
+  { lv: 'LATA 2023 — 3.Vieta', en: 'LATA 2023 — 3.Place', subLV: 'Ideju Ģenerators - hakatons', subEN: 'Idea Generator - hackathon', highlight: true }
 ];
 
 export default function Achievements() {

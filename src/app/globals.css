@@ -17,7 +17,7 @@
   --green-dim: rgba(62,207,142,0.1);
   --radius: 10px;
   --radius-lg: 14px;
-  --max-w: 780px;
+  --max-w: 960px;
 }
 
 html { scroll-behavior: smooth; }
