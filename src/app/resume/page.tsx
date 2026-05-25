@@ -24,14 +24,9 @@ export default function Resume() {
         />
         <div className={styles.heroOverlay} />
         <div className={styles.heroContent}>
-          <p className={styles.heroSub}>
-            {t('Inženierijas Portfolio', 'Engineering Portfolio')}
-          </p>
-          <h1 className={styles.heroName}>Linards Balodis</h1>
-          <p className={styles.heroLocation}>Rīga, Latvija</p>
+          <h1 className={styles.heroName} style={{ marginBottom: 100 }} >{t('Resume', 'Resume')}</h1>
         </div>
       </div>
-      <h1 className={styles.heading}>{t('Resume', 'Resume')}</h1>
 
       {/* Language toggle */}
       <div className={styles.toggle}>

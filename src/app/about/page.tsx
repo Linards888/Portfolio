@@ -7,7 +7,7 @@ export default function About() {
   const { t } = useLang();
   return (
     <div>
-      <h1 style={{ marginBottom: 24 }}>{t('Par mani', 'About me')}</h1>
+      <h1 style={{ marginBottom: 24,  marginTop: 82 }}>{t('Par mani', 'About me')}</h1>
       <div className={styles.twoCol}>
         <div className={styles.textBlock}>
           <p>{t('Es esmu Linards Balodis. Mani interesē inženierzinātnes — īpaši robotika, elektronika, programmēšana un mehānisko konstrukciju izstrāde.', 'I am Linards Balodis. I am interested in engineering — especially robotics, electronics, programming and mechanical design.')}</p>
@@ -24,9 +24,7 @@ export default function About() {
           { src: '/img1.png', lv: 'Antweight robots — Top 16 Eiropā, RoboChallenge 2025.', en: 'Antweight robot — Top 16 in Europe, RoboChallenge 2025.' },
           { src: '/folkrace.png', lv: 'Robotu Folkrace — mehānika, elektronika un programmēšana.', en: 'Robot Folkrace — mechanics, electronics and programming.' },
           { src: '/img2.jpg', lv: 'DIY braukšanas simulators ar vadības elektroniku.', en: 'DIY driving simulator with control electronics.' },
-          { src: '/freze.jpg', lv: 'CNC frēzēšanas eksperimenti un G-code apguve.', en: 'CNC milling experiments and G-code learning.' },
-          { src: '/img3.jpg', lv: 'Detaļu prototipēšana un testēšana.', en: 'Part prototyping and testing.' },
-          { src: '/20251031_155544.jpg', lv: 'Darbs pie jaunākās robota versijas.', en: 'Working on the latest robot version.' },
+          { src: '/LATA_preview.jpg', lv: 'LATA hakatons un ideju ģenerators.', en: 'LATA hackathon and idea generator.' },
         ].map((item) => (
           <figure key={item.src} className={styles.figure}>
             <Image src={item.src} alt={t(item.lv, item.en)} width={500} height={320} className={styles.galleryImg} />

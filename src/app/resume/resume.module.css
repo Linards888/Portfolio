@@ -108,7 +108,7 @@
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
-  height: 30vw;
+  height: 22vw;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -117,7 +117,7 @@
 
 .heroBg {
   object-fit: cover;
-  object-position: center 40%;
+  object-position: center 46%;
 }
 
 .heroOverlay {
