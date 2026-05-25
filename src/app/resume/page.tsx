@@ -12,7 +12,25 @@ export default function Resume() {
   const isLV = lang === 'lv';
 
   return (
+    
     <div className={styles.wrapper}>
+      <div className={styles.hero}>
+        <Image
+          src="/milling.jpg"
+          alt="Linards Balodis"
+          fill
+          className={styles.heroBg}
+          priority
+        />
+        <div className={styles.heroOverlay} />
+        <div className={styles.heroContent}>
+          <p className={styles.heroSub}>
+            {t('Inženierijas Portfolio', 'Engineering Portfolio')}
+          </p>
+          <h1 className={styles.heroName}>Linards Balodis</h1>
+          <p className={styles.heroLocation}>Rīga, Latvija</p>
+        </div>
+      </div>
       <h1 className={styles.heading}>{t('Resume', 'Resume')}</h1>
 
       {/* Language toggle */}

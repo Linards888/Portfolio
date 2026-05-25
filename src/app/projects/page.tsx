@@ -360,15 +360,24 @@ export default function Projects() {
 
   return (
     <div>
-      <h1 style={{ marginBottom: 8 }}>{t('Projekti', 'Projects')}</h1>
-      <p style={{ marginBottom: 52, maxWidth: 540, color: 'var(--text-muted)', lineHeight: 1.7 }}>
-        {t(
-          'Katrs projekts apvieno mehāniku, elektroniku un programmēšanu — no idejas līdz darbojošamies risinājumam.',
-          'Every project combines mechanics, electronics and programming — from idea to working result.'
-        )}
-      </p>
+      <div className={styles.hero}>
+        <Image
+          src="/keys.jpg"
+          alt="Linards Balodis"
+          fill
+          className={styles.heroBg}
+          priority
+        />
+        <div className={styles.heroOverlay} />
+        <div className={styles.heroContent}>
+          <p className={styles.heroSub}>
+            {t('Inženierijas Portfolio', 'Engineering Portfolio')}
+          </p>
+          <h1 className={styles.heroName} style={{ marginBottom: 100 }}>{t('Projekti', 'Projects')}</h1>
+        </div>
+      </div >
 
-      <div className={styles.list}>
+      <div className={styles.list} style={{ marginTop: 70 }}>
         {projects.map((p, i) => (
           // ↓ id here is the scroll target — e.g. id="folkrace"
           <article key={p.titleLV} id={p.id} className={styles.project}>

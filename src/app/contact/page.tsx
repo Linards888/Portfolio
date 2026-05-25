@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import styles from './contact.module.css';
 import { useLang } from '@/context/LanguageContext';
 
@@ -12,8 +13,26 @@ export default function Contact() {
   const { t } = useLang();
   return (
     <div>
-      <h1 style={{ marginBottom: 8 }}>{t('Kontakti', 'Contact')}</h1>
-      <p style={{ marginBottom: 48, maxWidth: 480, color: 'var(--text-muted)' }}>
+      {/* ── Hero ── */}
+      <div className={styles.hero}>
+        <Image
+          src="/contact.jpg"
+          alt="Linards Balodis"
+          fill
+          className={styles.heroBg}
+          priority
+        />
+        <div className={styles.heroOverlay} />
+        <div className={styles.heroContent}>
+          <p className={styles.heroSub}>
+            {t('Inženierijas Portfolio', 'Engineering Portfolio')}
+          </p>
+          <h1 className={styles.heroName} style={{ marginBottom: 80 }}>{t('Kontakti', 'Contact')}</h1>
+        </div>
+      </div> 
+
+
+      <p style={{maxWidth: 500, color: 'var(--text-muted)', textAlign: 'center', margin: '32px auto 32px auto'}}>
         {t('Ja vēlaties uzzināt vairāk par maniem projektiem, sadarbības iespējām vai sacensībām — rakstiet!', 'If you want to learn more about my projects, collaboration opportunities or competitions — get in touch!')}
       </p>
       <ul className={styles.list}>

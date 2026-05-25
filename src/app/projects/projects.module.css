@@ -12,6 +12,67 @@
   height: 300px;
 }
 
+.hero {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  height: 22vw;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.heroBg {
+  object-fit: cover;
+  object-position: center 20%;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  /* fade: transparent at top, dark at bottom so text is readable */
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.25) 0%,
+    rgba(0, 0, 0, 0.62) 100%
+  );
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #fff;
+  padding: 0 1.5rem 1.8rem;
+  width: 100%;
+}
+
+.heroSub {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.8;
+  margin: 0 0 0.35rem;
+}
+
+.heroName {
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.3rem;
+  line-height: 1.05;
+}
+
+.heroLocation {
+  font-size: 0.78rem;
+  opacity: 0.6;
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
