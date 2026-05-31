@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 * {
   margin: 0;
   padding: 0;
@@ -377,4 +378,222 @@ p span.highlight:hover::after {
     width: 100%;
     align-self: center !important;
   }
+=======
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:           #080909;
+  --bg-1:         #0f1011;
+  --bg-2:         #151618;
+  --bg-3:         #1c1e21;
+  --border:       rgba(255,255,255,0.06);
+  --border-md:    rgba(255,255,255,0.10);
+  --border-hi:    rgba(255,255,255,0.18);
+  --text:         #eceef2;
+  --text-link:    #1a1717;
+  --text-2:       #9da3b4;
+  --text-3:       #555b6e;
+  --text-4:       #404041;
+  --accent:       #c8f060;
+  --accent-dim:   rgba(200,240,96,0.10);
+  --accent-glow:  rgba(200,240,96,0.20);
+  --radius:       8px;
+  --radius-lg:    12px;
+  --max-w:        980px;
+  --nav-h:        54px;
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+  --font-mono:    'DM Mono', monospace;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.65;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--bg-3); border-radius: 4px; }
+
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  height: var(--nav-h);
+  background: rgba(8,9,9,0.80);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  margin-right: auto;
+  transition: opacity 0.15s;
+}
+.logo:hover { opacity: 0.75; }
+
+.main-nav { display: flex; gap: 2px; }
+
+.main-nav a {
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--text-2);
+  text-decoration: none;
+  padding: 5px 11px;
+  border-radius: 6px;
+  letter-spacing: 0.01em;
+  transition: color 0.15s, background 0.15s;
+}
+.main-nav a:hover { color: var(--text); background: var(--bg-2); }
+.main-nav a.nav-active { color: var(--accent); background: var(--accent-dim); }
+
+.nav-spacer { height: var(--nav-h); }
+
+.main-content {
+  flex: 1;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 24px 80px;
+}
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-3);
+  letter-spacing: 0.04em;
+}
+.site-footer a { color: var(--text-3); text-decoration: none; transition: color 0.15s; }
+.site-footer a:hover { color: var(--text-2); }
+.site-footer .sep { opacity: 0.3; }
+
+h1 { font-family: var(--font-display); font-size: 38px; font-weight: 800; letter-spacing: -0.04em; line-height: 1.1; }
+h2 { font-family: var(--font-display); font-size: 22px; font-weight: 700; letter-spacing: -0.03em; }
+h3 { font-family: var(--font-body); font-size: 14px; font-weight: 600; }
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+.card {
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.card:hover { border-color: var(--border-md); background: var(--bg-2); }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.badge-green { background: rgba(62,207,142,0.08); color: #3ecf8e; border: 1px solid rgba(62,207,142,0.2); }
+.badge-accent { background: var(--accent-dim); color: var(--accent); border: 1px solid rgba(200,240,96,0.2); }
+.badge-dim { background: var(--bg-2); color: var(--text-3); border: 1px solid var(--border); }
+
+.pill {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--text-3);
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  padding: 3px 10px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.15s;
+  border: 1px solid var(--border-md);
+  color: var(--text-2);
+  background: var(--bg-2);
+}
+.btn:hover { border-color: var(--border-hi); color: var(--text); background: var(--bg-3); }
+
+.btn-accent {
+  background: var(--accent);
+  color: #080909;
+  border-color: var(--accent);
+  font-weight: 700;
+}
+.btn-accent:hover { background: #d4f57a; border-color: #d4f57a; color: #080909; }
+
+.divider { height: 1px; background: var(--border); margin: 28px 0; }
+
+.mono { font-family: var(--font-mono); font-size: 11px; color: var(--text-3); letter-spacing: 0.04em; }
+
+a.text-link { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-dim); transition: border-color 0.15s; }
+a.text-link:hover { border-color: var(--accent); }
+
+@media (max-width: 600px) {
+  h1 { font-size: 28px; }
+  .main-content { padding: 0 16px 60px; }
+  .header-inner { padding: 0 16px; }
+  .main-nav a { padding: 5px 8px; font-size: 12px; }
+}
+
+/* hide desktop nav on mobile */
+@media (max-width: 640px) {
+  .main-nav { display: none; }
+>>>>>>> repo-f/master
 }

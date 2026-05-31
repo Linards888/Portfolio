@@ -1,0 +1,165 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1.5rem 4rem;
+  gap: 1.4rem;
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* ── Language toggle ── */
+.toggle {
+  display: flex;
+  border: 1.5px solid currentColor;
+  border-radius: 6px;
+  overflow: hidden;
+  opacity: 0.75;
+}
+
+.toggleBtn {
+  padding: 0.4rem 1.2rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  transition: background 0.15s, color 0.15s;
+}
+
+.toggleBtn + .toggleBtn {
+  border-left: 1.5px solid currentColor;
+}
+
+.toggleBtn.active {
+  background: #111;
+  color: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  .toggleBtn.active {
+    background: #fff;
+    color: #111;
+  }
+}
+
+/* ── Download button ── */
+.downloadBtn {
+  display: inline-block;
+  padding: 0.6rem 1.6rem;
+  border: 2px solid currentColor;
+  border-radius: 4px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.15s, color 0.15s;
+}
+
+.downloadBtn:hover {
+  background: #111;
+  color: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  .downloadBtn:hover {
+    background: #fff;
+    color: #111;
+  }
+}
+
+/* ── CV image ── */
+.imageWrap {
+  width: 100%;
+  max-width: 860px;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.15);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.cvImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── Back link ── */
+.back {
+  font-size: 0.85rem;
+  opacity: 0.5;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.15s;
+}
+.back:hover { opacity: 1; }
+
+/* ── Replace hero styles in page.module.css ── */
+
+.hero {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  height: 22vw;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.heroBg {
+  object-fit: cover;
+  object-position: center 46%;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  /* fade: transparent at top, dark at bottom so text is readable */
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.25) 0%,
+    rgba(0, 0, 0, 0.62) 100%
+  );
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #fff;
+  padding: 0 1.5rem 1.8rem;
+  width: 100%;
+}
+
+.heroSub {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.8;
+  margin: 0 0 0.35rem;
+}
+
+.heroName {
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.3rem;
+  line-height: 1.05;
+}
+
+.heroLocation {
+  font-size: 0.78rem;
+  opacity: 0.6;
+  margin: 0;
+  letter-spacing: 0.05em;
+}
