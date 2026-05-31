@@ -25,8 +25,15 @@ export default function About() {
         {}
         <div className="about-zigzag">
           <div className="zig right">
-            <Image src="/img1.jpg" alt="Project 1" fill />
+            <Image src="/img1.png" alt="Project 1" fill />
           </div>
+
+          <p>
+            Man sāka intresēt elektronika ap 7~8 gadiem. piermais robots ko es uztaisiju bija salodējams līnijsekotājs.
+            Dažus mēnešus vēlāk es pieteicos pulciņam, Eletronika, Sigulds jaunrades centrā,
+            kur es mācijos lodēt, likt elektroniskās shēmas, programēt un modelēt programmā Fusion360.
+            Dažus gadus vēlāk es mūsu pulciņš pieteicās Latvijas Robotikas Čempionātam(LRČ).
+          </p>
 
           <div className="zig left">
             <Image src="/img2.jpg" alt="Project 2" fill />
