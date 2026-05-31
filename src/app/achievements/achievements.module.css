@@ -1,0 +1,9 @@
+.list { list-style: none; display: flex; flex-direction: column; }
+.item {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+}
+.item:first-child { border-top: 1px solid var(--border); }
+.highlight .title { font-weight: 600; }
+.title { font-size: 15px; color: var(--text); margin-bottom: 3px; }
+.sub { font-size: 13px; color: var(--text-dim); }
