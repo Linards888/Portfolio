@@ -46,8 +46,8 @@ export default function Resume() {
 
       {/* Download button */}
       <a
-        href={isLV ? '/Linards_Balodis_CV_LV.pdf' : '/Linards_Balodis_CV_ENG.pdf'}
-        download={isLV ? 'Linards_Balodis_CV_LV.pdf' : 'Linards_Balodis_CV_ENG.pdf'}
+        href={isLV ? '/Linards_Balodis_Resume.pdf' : '/Linards_Balodis_Resume.pdf'}
+        download={isLV ? 'Linards_Balodis_Resume.pdf' : 'Linards_Balodis_Resume.pdf'}
         className={styles.downloadBtn}
       >
         ↓ {t('Lejupielādēt CV', 'Download Resume')} ({isLV ? 'LV' : 'EN'})
