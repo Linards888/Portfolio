@@ -1,19 +1,3 @@
-<<<<<<< HEAD
-import "./globals.css";
-import Link from "next/link";
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en">
-      <body>
-        <nav>
-          <Link href="/">Home</Link>
-          <Link href="/about">About</Link>
-          <Link href="/projects">Projects</Link>
-          <Link href="/contact">Contact</Link>
-        </nav>
-        <main>{children}</main>
-=======
 import type { Metadata } from 'next';
 import './globals.css';
 import Link from 'next/link';
@@ -57,7 +41,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <span>{new Date().getFullYear()} · Linards Balodis</span>
           </footer>
         </LanguageProvider>
->>>>>>> repo-f/master
       </body>
     </html>
   );
