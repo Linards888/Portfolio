@@ -57,7 +57,7 @@ export default function Resume() {
       <div className={styles.imageWrap}>
         <Image
           key={lang}
-          src={isLV ? '/cv_lv.png' : '/cv_en.png'}
+          src={isLV ? '/Linards_Balodis_Resume.png' : '/Linards_Balodis_Resume.png'}
           alt="Linards Balodis CV"
           width={1240}
           height={1754}
