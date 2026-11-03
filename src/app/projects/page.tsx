@@ -204,7 +204,6 @@ function ModelViewer({ file }: { file: string }) {
         )}
         {status === 'error' && (
           <div className={styles.overlay}>
-            <span className={styles.errIcon}>⚠</span>
             <p className={styles.errTitle}>3D modelis nav pievienots</p>
             <p className={styles.errSub}>{errorMsg}</p>
           </div>
@@ -232,8 +231,8 @@ const projects = [
     titleLV: 'Antweight 454g sacensību robots',
     titleEN: 'Antweight 454g combat robot',
     date: '2024 — tagad / now',
-    badgeLV: '🏆 RoboChallenge 2025 · Top 16 Eiropā',
-    badgeEN: '🏆 RoboChallenge 2025 · Top 16 Europe',
+    badgeLV: 'RoboChallenge 2025 · Top 16 Eiropā',
+    badgeEN: 'RoboChallenge 2025 · Top 16 Europe',
     green: true,
     descLV: 'Antweight kategorijas sacensību robots robotu cīņām. Mērķis — pēc iespējas efektīvs, izturīgs un viegls robots, ievērojot svara ierobežojumu. Katrs grams un katra konstrukcijas izvēle ir svarīga.',
     descEN: 'Antweight class combat robot built for robot fighting competitions. Goal — the most efficient, durable and lightweight robot possible within the weight limit. Every gram and every design choice matters.',
@@ -275,8 +274,8 @@ const projects = [
     titleLV: 'LATA Hakatons un Ideju Ģenerators 2023',
     titleEN: 'LATA Hackathon and Idea Generator 2023',
     date: '2023',
-    badgeLV: '🏆  3.VIETA',
-    badgeEN: '🏆  3.PLACE',
+    badgeLV: '3. vieta',
+    badgeEN: '3rd place',
     green: true,
     descLV: '“LATA hakatons un ideju ģenerators 2023” bija tehnoloģiju un inovāciju pasākums, kur komandas īsā laikā izstrādāja un prezentēja risinājumus dažādām problēmām, izmantojot programmēšanu, dizainu un radošu domāšanu.',
     descEN: '“LATA Hackathon and Idea Generator 2023” was a technology and innovation event where teams rapidly developed and presented solutions to various challenges using programming, design, and creative thinking.',
