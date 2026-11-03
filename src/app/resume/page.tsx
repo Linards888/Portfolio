@@ -44,14 +44,19 @@ export default function Resume() {
         </button>
       </div>
 
-      {/* Download button */}
-      <a
-        href={isLV ? '/Linards_Balodis_Resume.pdf' : '/Linards_Balodis_Resume.pdf'}
-        download={isLV ? 'Linards_Balodis_Resume.pdf' : 'Linards_Balodis_Resume.pdf'}
-        className={styles.downloadBtn}
-      >
-        ↓ {t('Lejupielādēt CV', 'Download Resume')} ({isLV ? 'LV' : 'EN'})
-      </a>
+      {/* Download buttons — both languages always available */}
+      <div className={styles.downloads}>
+        {(['LV', 'EN'] as const).map((code) => (
+          <a
+            key={code}
+            href={`/Linards_Balodis_CV_${code}.pdf`}
+            download
+            className={styles.downloadBtn}
+          >
+            ↓ {t('Lejupielādēt CV', 'Download Resume')} ({code})
+          </a>
+        ))}
+      </div>
 
       {/* CV image */}
       <div className={styles.imageWrap}>
@@ -59,8 +64,8 @@ export default function Resume() {
           key={lang}
           src={isLV ? '/cv_lv.png' : '/cv_en.png'}
           alt="Linards Balodis CV"
-          width={1240}
-          height={1754}
+          width={2040}
+          height={2640}
           className={styles.cvImage}
           priority
         />

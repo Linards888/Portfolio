@@ -11,7 +11,6 @@ const PROJECTS_PREVIEW = [
     titleEn: 'Antweight combat robot',
     descLv: 'Top 16 Eiropā · RoboChallenge 2025',
     descEn: 'Top 16 in Europe · RoboChallenge 2025',
-    emoji: '🏆',
   },
   {
     id: 'folkrace',
@@ -19,15 +18,13 @@ const PROJECTS_PREVIEW = [
     titleEn: 'Robot Folkrace',
     descLv: 'Latvijas robotikas sacensības',
     descEn: 'Latvian robotics competitions',
-    emoji: '🤖',
   },
   {
     id: 'LATA',
     titleLv: 'LATA hakatons 2023',
-    titleEn: 'DIY driving simulator',
+    titleEn: 'LATA hackathon 2023',
     descLv: 'atvērto datu hakatons un ideju ģenerators 2023',
     descEn: 'open data hackathon and idea generator 2023',
-    emoji: '💡',
   },
   {
     id: 'simulator',
@@ -35,7 +32,6 @@ const PROJECTS_PREVIEW = [
     titleEn: 'DIY driving simulator',
     descLv: 'Stūris, pedāļi, FPV VR vadība',
     descEn: 'Steering wheel, pedals, FPV VR control',
-    emoji: '🎮',
   },
   {
     id: 'cnc',
@@ -43,7 +39,6 @@ const PROJECTS_PREVIEW = [
     titleEn: 'CNC milling & G-code',
     descLv: 'Materiālu apstrāde un CAM programmēšana',
     descEn: 'Material machining and CAM programming',
-    emoji: '⚙️',
   },
   {
     id: 'portfolio',
@@ -51,7 +46,6 @@ const PROJECTS_PREVIEW = [
     titleEn: 'Portfolio website',
     descLv: 'Next.js · linardsb.xyz',
     descEn: 'Next.js · linardsb.xyz',
-    emoji: '🌐',
   },
 ];
 
@@ -88,7 +82,7 @@ export default function Home() {
           )}
         </p>
         <div className={styles.highlight}>
-          🏆 {t('RoboChallenge 2025 — Top 16 Eiropā', 'RoboChallenge 2025 — Top 16 in Europe')}
+          {t('RoboChallenge 2025 — Top 16 Eiropā', 'RoboChallenge 2025 — Top 16 in Europe')}
         </div>
 
         {/* Projects Preview */}
@@ -97,13 +91,13 @@ export default function Home() {
             {t('Projekti & Sasniegumi', 'Projects & Achievements')}
           </h2>
           <div className={styles.previewGrid}>
-            {PROJECTS_PREVIEW.map((project) => (
+            {PROJECTS_PREVIEW.map((project, i) => (
               <Link
                 href={`/projects#${project.id}`}
                 key={project.id}
                 className={styles.previewCard}
               >
-                <span className={styles.previewEmoji}>{project.emoji}</span>
+                <span className={styles.previewIdx}>{String(i + 1).padStart(2, '0')}</span>
                 <h3 className={styles.previewTitle}>{t(project.titleLv, project.titleEn)}</h3>
                 <p className={styles.previewDesc}>{t(project.descLv, project.descEn)}</p>
                 <span className={styles.previewArrow}>↗</span>

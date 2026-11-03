@@ -104,10 +104,12 @@
   transform: translateY(-2px);
 }
 
-.previewEmoji {
-  font-size: 1.6rem;
-  line-height: 1;
-  margin-bottom: 0.2rem;
+.previewIdx {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+  margin-bottom: 0.35rem;
 }
 
 .previewTitle {
